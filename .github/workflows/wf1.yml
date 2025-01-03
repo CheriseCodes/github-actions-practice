@@ -1,0 +1,11 @@
+name: Build
+on: 
+  push:
+    branches:
+      - main
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Building..."
