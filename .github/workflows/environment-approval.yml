@@ -50,4 +50,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push Container to Registry
-        run: echo "Pushing container to registry...
+        run: echo "Pushing container to registry..."
