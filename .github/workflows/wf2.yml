@@ -1,0 +1,14 @@
+name: Test
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: 
+      - completed
+    branches:
+      - main
+      - develop
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Testing..."
