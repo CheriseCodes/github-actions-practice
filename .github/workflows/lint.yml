@@ -9,4 +9,4 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - run: gh pr create --template lint-pr-template.md
+      - run: gh pr create --title Lint --template lint-pr-template.md
