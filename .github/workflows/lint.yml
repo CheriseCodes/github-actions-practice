@@ -5,6 +5,8 @@ on:
       - develop
 env:
   GH_TOKEN: ${{ github.token }}
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+  COMMIT_ID: ${{ github.sha }}
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -12,5 +14,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Create PR
-        run: gh pr create --title Lint --fill --template lint-pr-template.md
+      - name: Create new branch
+	run: |
+          git checkout $BRANCH_NAME
+          git checkout -b "$BRANCH_NAME-lint-$COMMIT_ID"
+          git push -u origin "$BRANCH_NAME-lint-$COMMIT_ID"
+	  echo "Data" >> my_file.txt
+	  git add .
+          git commit -m "new data"
+          git push
+          gh pr create --fill --base $BRANCH_NAME --head "$BRANCH_NAME-lint-$COMMIT_ID"
