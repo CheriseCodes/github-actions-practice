@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create new branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git checkout $BRANCH_NAME
           git checkout -b "$BRANCH_NAME-lint-$COMMIT_ID"
