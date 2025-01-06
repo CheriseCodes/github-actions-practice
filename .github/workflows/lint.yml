@@ -21,6 +21,8 @@ jobs:
         run: |
           git checkout $BRANCH_NAME
           git checkout -b "$BRANCH_NAME-lint-$COMMIT_ID"
+          git config --global user.email "github-bot@example.com"
+          git config --global user.name "GitHub Bot"
           git push -u origin "$BRANCH_NAME-lint-$COMMIT_ID"
           echo "Data" >> my_file.txt
           git add .
