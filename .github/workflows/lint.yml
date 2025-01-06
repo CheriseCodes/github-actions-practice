@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-permisiions:
+permissions:
   pull-requests: write
 env:
   GH_TOKEN: ${{ github.token }}
