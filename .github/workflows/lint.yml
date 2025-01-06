@@ -1,0 +1,9 @@
+name: Lint
+on:
+    branches:
+      - develop
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: gh pr create --template lint-pr-template.md
