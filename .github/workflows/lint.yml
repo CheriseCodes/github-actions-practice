@@ -19,8 +19,8 @@ jobs:
           git checkout $BRANCH_NAME
           git checkout -b "$BRANCH_NAME-lint-$COMMIT_ID"
           git push -u origin "$BRANCH_NAME-lint-$COMMIT_ID"
-	        echo "Data" >> my_file.txt
-	        git add .
+          echo "Data" >> my_file.txt
+          git add .
           git commit -m "new data"
           git push
           gh pr create --fill --base $BRANCH_NAME --head "$BRANCH_NAME-lint-$COMMIT_ID"
