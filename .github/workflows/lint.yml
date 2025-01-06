@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create PR
-      - run: gh pr create --title Lint --fill --template lint-pr-template.md
+        run: gh pr create --title Lint --fill --template lint-pr-template.md
