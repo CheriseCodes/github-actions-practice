@@ -9,4 +9,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create PR
       - run: gh pr create --title Lint --fill --template lint-pr-template.md
